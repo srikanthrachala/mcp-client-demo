@@ -1,3 +1,4 @@
+
 package com.springcoding.springboot.mcp;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class ChatClientController {
     private final ChatClient chatClient;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public String chat(@RequestBody String userInput) {
-        return chatClient.prompt(userInput).call().content();
+    public String chat(@RequestBody ChatRequest chatRequest) {
+        return chatClient.prompt(chatRequest.getUserInput()).call().content();
     }
 }
